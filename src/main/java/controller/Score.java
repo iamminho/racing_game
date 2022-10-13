@@ -7,16 +7,19 @@ import model.Car;
 import model.Cars;
 import model.Num;
 import model.Scores;
+import view.OutputData;
 
 public class Score {
 	static Scores sc = new Scores();
 	static Cars cars = new Cars();
 	static ArrayList<Car> carArr = cars.getCars();
+	static OutputData output = new OutputData();
 
 	public static void inputScore() {
 		Num number = new Num();
 		int n = number.getNum();
 
+		System.out.println("실행 결과");
 		for (int i=0; i < n; i++) {
 			carMove();
 		}
@@ -25,11 +28,13 @@ public class Score {
 	public static void carMove() {
 		for (int i=0; i < carArr.size(); i++) {
 			Car car = carArr.get(i);
+
 			if (isCanMove()) {
 				getScore(car);
 			}
 		}
-		System.out.println(sc.getScores());
+
+		output.printResult(sc.getScores());
 	}
 
 	public static boolean isCanMove() {
