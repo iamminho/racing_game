@@ -1,12 +1,15 @@
 package controller;
 
 import model.Cars;
+import model.Num;
 import view.InputData;
 
 public class Input {
 	static InputData input = new InputData();
 	static CheckInput check = new CheckInput();
 	static Cars cars = new Cars();
+	static Num number = new Num();
+
 
 	public static void inputName() {
 		String carName = input.inputCarName();
@@ -29,7 +32,6 @@ public class Input {
 	}
 
 	public static void inputCnt() {
-		int result;
 		String cnt = input.inputCnt();
 
 		try {
@@ -40,7 +42,7 @@ public class Input {
 			inputCnt();
 		}
 
-		result = Integer.parseInt(cnt);
+		number.num = Integer.parseInt(cnt);
 	}
 
 	static void exceptCnt (String cnt) throws IllegalArgumentException {
