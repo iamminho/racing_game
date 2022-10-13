@@ -19,6 +19,7 @@ public class Score {
 		Num number = new Num();
 		int n = number.getNum();
 
+		System.out.println("");
 		System.out.println("실행 결과");
 		for (int i=0; i < n; i++) {
 			carMove();

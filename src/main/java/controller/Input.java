@@ -37,16 +37,19 @@ public class Input {
 
 	public static void inputCnt() {
 		String cnt = input.inputCnt();
+		boolean flag = true;
 
 		try {
 			exceptCnt(cnt);
 		} catch(IllegalArgumentException e) {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			System.out.println(e);
+			flag = false;
 			inputCnt();
 		}
-
-		number.num = Integer.parseInt(cnt);
+		if(flag) {
+			number.inputNum(cnt);
+		}
 	}
 
 	static void exceptCnt (String cnt) throws IllegalArgumentException {
