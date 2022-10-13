@@ -2,8 +2,6 @@ package view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 import model.Car;
 import model.Cars;
@@ -15,18 +13,24 @@ public class OutputData {
 
 		for(int i = 0; i < carArr.size(); i++) {
 			Car car = carArr.get(i);
-			int value = 0;
-
-			if(hasKey(map, car.getName())) {
-				value = map.get(car.getName());
-			}
+			int distance = getDistance(map, car);
 
 			printKey(car.getName());
-			printValue(value);
+			printValue(distance);
 			System.out.println("");
 		}
 
 		System.out.println("");
+	}
+
+	static int getDistance (HashMap<String, Integer> map, Car car) {
+		int distance = 0;
+
+		if(hasKey(map, car.getName())) {
+			distance = map.get(car.getName());
+		}
+
+		return distance;
 	}
 
 	static boolean hasKey(HashMap<String, Integer> map, String carName) {
