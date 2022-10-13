@@ -13,19 +13,23 @@ public class Input {
 
 	public static void inputName() {
 		String carName = input.inputCarName();
+		boolean flag = true;
 
 		try {
 			exceptName(carName);
-		} catch (IllegalArgumentException e) {
-			System.out.println("[Error] 각각의 자동차 이름은 5글자 이하여야 한다.");
+		} catch(IllegalArgumentException e) {
+			System.out.println("[Error] 각각의 자동차 이름은 5글자 이하이거나 공백이 없어야 한다.");
 			System.out.println(e);
+			flag = false;
 			inputName();
 		}
 
-		cars.inputCars(carName);
+		if(flag) {
+			cars.inputCars(carName);
+		}
 	}
 
-	static void exceptName (String carName) throws IllegalArgumentException {
+	static void exceptName(String carName) throws IllegalArgumentException {
 		if(!check.checkCarName(carName)) {
 			throw new IllegalArgumentException();
 		}
@@ -36,7 +40,7 @@ public class Input {
 
 		try {
 			exceptCnt(cnt);
-		} catch (IllegalArgumentException e) {
+		} catch(IllegalArgumentException e) {
 			System.out.println("[ERROR] 시도 횟수는 숫자여야 한다.");
 			System.out.println(e);
 			inputCnt();

@@ -7,7 +7,7 @@ public class CheckInput {
 		String [] carNames = splitCarName(carName);
 
 		for (String name : carNames) {
-			if (!checkNameLen(name)) return false;
+			if (!checkNameLen(name) || !checkNameSpace(name)) return false;
 		}
 
 		return true;
@@ -23,6 +23,15 @@ public class CheckInput {
 		if (name.length() > 5) return false;
 
 		return true;
+	}
+
+	public static boolean checkNameSpace (String name) {
+		String pattern = "^\\S*$";
+		boolean result;
+
+		result = Pattern.matches(pattern, name);
+
+		return result;
 	}
 
 	public static boolean checkCnt (String cnt) {

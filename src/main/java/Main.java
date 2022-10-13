@@ -13,16 +13,16 @@ public class Main {
 		Num num = new Num();
 
 
-		// input.inputName();
-		// ArrayList<Car> carArr = cars.getCars();
-		//
-		// for (int i = 0; i < carArr.size(); i++) {
-		// 	Car tmp = carArr.get(i);
-		// 	System.out.println(tmp.getName());
-		// }
+		input.inputName();
+		ArrayList<Car> carArr = cars.getCars();
 
-		input.inputCnt();
-		System.out.println("시도할 횟수: " + num.getNum());
+		for (int i = 0; i < carArr.size(); i++) {
+			Car tmp = carArr.get(i);
+			System.out.println(tmp.getName());
+		}
+
+		// input.inputCnt();
+		// System.out.println("시도할 횟수: " + num.getNum());
 
 	}
 }
